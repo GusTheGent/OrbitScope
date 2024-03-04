@@ -1,0 +1,26 @@
+// @import '../../../theme/variables.scss';
+
+#container {
+  text-align: center;
+}
+
+.heading-text {
+  color: var(--ion-color-primary);
+  margin-bottom: 15px;
+}
+
+.content-text {
+  font-size: 1em;
+  color: #333;
+}
+
+.source-link {
+  display: block;
+  margin-top: 10px;
+  color: var(--ion-color-medium);
+  text-decoration: none;
+}
+
+.source-link:hover {
+  text-decoration: underline;
+}

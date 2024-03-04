@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button size="small" fill="clear" (click)="onCloseInfoModal()">
+        <ion-icon slot="icon-only" size="large" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-start">{{ data.pageTitle }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+  <div id="container" class="ion-padding">
+    <ion-text color="primary" class="ion-text-start">
+      <p>{{ data.pageDescription }}</p>
+    </ion-text>
+    <p class="content-text">
+      <a [href]="data.pageSource" target="_blank" class="source-link"
+        >View Source</a
+      >
+    </p>
+  </div>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-card class="ion-padding">
+  <ion-progress-bar
+    *ngIf="imageLoading && apodData.media_type === 'image'"
+    type="indeterminate"
+  ></ion-progress-bar>
+  <ion-img
+    *ngIf="apodData.media_type === 'image'"
+    alt="Not Available"
+    [src]="apodData.url"
+    (ionImgDidLoad)="onImageLoaded($event)"
+  >
+  </ion-img>
+  <iframe
+    *ngIf="apodData.media_type === 'video'"
+    frameborder="0"
+    allowfullscreen
+    [src]="getYouTubeEmbedUrl(apodData.url)"
+  ></iframe>
+  <ion-card-header>
+    <ion-card-title>{{ apodData.title }}</ion-card-title>
+    <ion-card-subtitle color="primary">
+      {{
+        apodData.copyright ? "Copyright: " + apodData.copyright : apodData.date
+      }}
+    </ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    {{ apodData.explanation }}
+  </ion-card-content>
+
+  <ion-button *ngIf="apodData.media_type === 'image'">HD picture</ion-button>
+</ion-card>

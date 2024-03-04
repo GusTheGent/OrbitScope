@@ -1,0 +1,8 @@
+.page-info-modal {
+  --width: 400px;
+  --height: 350px;
+  @media screen and (min-width: 1024px) {
+    --width: 600px;
+    --height: 300px;
+  }
+}

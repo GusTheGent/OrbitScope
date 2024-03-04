@@ -1,0 +1,49 @@
+.light-mode {
+  --ion-background-color: var(--ion-color-light);
+  --ion-text-color: var(--ion-color-light-contrast);
+}
+
+.dark-mode {
+  --ion-background-color: var(--ion-color-dark);
+  --ion-text-color: var(--ion-color-dark-contrast);
+  --ion-card-background-color: var(--ion-color-dark-tint);
+}
+
+ion-app.light-mode {
+  background-color: var(--ion-background-color);
+  color: var(--ion-text-color);
+  ion-list-header {
+    color: var(--ion-text-color);
+  }
+  ion-card-title {
+    color: var(--ion-text-color);
+  }
+  ion-card-content {
+    color: var(--ion-text-color);
+  }
+  ion-datetime {
+    background-color: var(--ion-background-color);
+    color: var(--ion-text-color);
+  }
+}
+
+ion-app.dark-mode {
+  background-color: var(--ion-background-color);
+  color: var(--ion-text-color);
+  ion-list-header {
+    color: var(--ion-text-color);
+  }
+  ion-card-title {
+    color: var(--ion-text-color);
+  }
+  ion-card-content {
+    color: var(--ion-text-color);
+  }
+  ion-datetime {
+    background-color: var(--ion-background-color);
+    color: var(--ion-text-color);
+  }
+  ion-card {
+    background-color: var(--ion-card-background-color);
+  }
+}

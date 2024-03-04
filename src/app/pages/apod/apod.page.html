@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Astronomy Picture of the Day</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false" class="content">
+  <ion-grid [fixed]="true" class="ion-padding">
+    <ion-row>
+      <ion-col>
+        <ion-item id="open-datepicker" lines="none" button="true">
+          <ion-label position="fixed">Pick Date</ion-label>
+          <ion-icon
+            slot="start"
+            id="open-datepicker"
+            name="calendar"
+            color="primary"
+          ></ion-icon>
+          <ion-text slot="end" color="primary">{{datePickerValue}}</ion-text>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngIf="apod$ | async as apod; else errorTemplate">
+        <app-apod-card [apodData]="apod"></app-apod-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer [translucent]="true" collapse="fade">
+  <ion-toolbar>
+    <ion-title>
+      <app-page-info (click)="onViewPageInfo()"></app-page-info>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
+
+<ion-modal trigger="open-datepicker">
+  <ng-template>
+    <ion-content class="ion-padding">
+      <ion-datetime
+        presentation="date"
+        size="cover"
+        showDefaultButtons="true"
+        [value]="datePickerValue"
+        (ionChange)="onDateSelection($event)"
+      ></ion-datetime>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<ion-spinner *ngIf="isLoading" name="circles"></ion-spinner>
+<ng-template #errorTemplate>
+  <span class="error-message">{{ errorMessage }}</span>
+</ng-template>
