@@ -2,27 +2,33 @@ ion-menu-button {
   color: var(--ion-color-primary);
 }
 
-#container {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+ion-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.background {
+  background-color: var(--ion-color-medium-tint);
+  color: var(--ion-color-primary-contrast);
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
+ion-row:hover {
+  background-color: #cccccc;
 }
 
-#container a {
-  text-decoration: none;
+.view-details {
+  cursor: pointer;
+}
+
+ion-accordion.accordion-collapsing ion-item[slot="header"] ion-label ion-text,
+ion-accordion.accordion-collapsed ion-item[slot="header"] ion-label ion-text {
+  color: var(--ion-color-primary);
+}
+
+ion-accordion.accordion-expanding ion-item[slot="header"] ion-label ion-text,
+ion-accordion.accordion-expanded ion-item[slot="header"] ion-label ion-text {
+  color: var(--ion-text-color);
 }

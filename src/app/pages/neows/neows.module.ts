@@ -8,6 +8,7 @@ import { NeowsPageRoutingModule } from './neows-routing.module';
 
 import { NeowsPage } from './neows.page';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { NeoDetailsComponent } from './components/neo-details/neo-details.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     NeowsPageRoutingModule,
     SharedModule,
   ],
-  declarations: [NeowsPage],
+  declarations: [NeowsPage, NeoDetailsComponent],
 })
 export class NeowsPageModule {}

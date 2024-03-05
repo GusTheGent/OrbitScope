@@ -7,17 +7,25 @@
   --ion-background-color: var(--ion-color-dark);
   --ion-text-color: var(--ion-color-dark-contrast);
   --ion-card-background-color: var(--ion-color-dark-tint);
+  --ion-menu-background-color: var(--ion-color-dark-tint);
+}
+
+ion-accordion {
+  margin: 0 auto;
+}
+
+ion-accordion.accordion-expanding,
+ion-accordion.accordion-expanded {
+  width: calc(100% - 32px);
+
+  margin: 16px auto;
 }
 
 ion-app.light-mode {
   background-color: var(--ion-background-color);
   color: var(--ion-text-color);
-  ion-list-header {
-    color: var(--ion-text-color);
-  }
-  ion-card-title {
-    color: var(--ion-text-color);
-  }
+  ion-list-header,
+  ion-card-title,
   ion-card-content {
     color: var(--ion-text-color);
   }
@@ -25,17 +33,25 @@ ion-app.light-mode {
     background-color: var(--ion-background-color);
     color: var(--ion-text-color);
   }
+  ion-accordion.accordion-collapsing ion-item[slot="header"],
+  ion-accordion.accordion-collapsed ion-item[slot="header"] {
+    --background: var(--ion-menu-background-color);
+    --color: var(--ion-text-color);
+  }
+
+  ion-accordion.accordion-expanding ion-item[slot="header"],
+  ion-accordion.accordion-expanded ion-item[slot="header"] {
+    --background: var(--ion-color-primary);
+    --color: var(--ion-text-color);
+  }
 }
 
 ion-app.dark-mode {
   background-color: var(--ion-background-color);
   color: var(--ion-text-color);
-  ion-list-header {
-    color: var(--ion-text-color);
-  }
-  ion-card-title {
-    color: var(--ion-text-color);
-  }
+
+  ion-list-header,
+  ion-card-title,
   ion-card-content {
     color: var(--ion-text-color);
   }
@@ -45,5 +61,19 @@ ion-app.dark-mode {
   }
   ion-card {
     background-color: var(--ion-card-background-color);
+  }
+  ion-menu {
+    --ion-background-color: var(--ion-menu-background-color);
+  }
+  ion-accordion.accordion-collapsing ion-item[slot="header"],
+  ion-accordion.accordion-collapsed ion-item[slot="header"] {
+    --background: var(--ion-menu-background-color);
+    --color: var(--ion-text-color);
+  }
+
+  ion-accordion.accordion-expanding ion-item[slot="header"],
+  ion-accordion.accordion-expanded ion-item[slot="header"] {
+    --background: var(--ion-color-primary);
+    --color: var(--ion-text-color);
   }
 }

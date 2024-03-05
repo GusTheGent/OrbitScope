@@ -8,18 +8,63 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div id="container">
-    <strong class="capitalize">apoddd</strong>
-    <p>
-      Explore
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://ionicframework.com/docs/components"
-        >UI Components</a
+  <ion-grid *ngIf="neoFeed">
+    <ion-accordion-group>
+      <ion-accordion
+        *ngFor="let neoEntry of neoFeed.near_earth_objects | keyvalue"
       >
-    </p>
-  </div>
+        <ion-item slot="header" class="ion-text-center">
+          <ion-label>Date: <ion-text>{{ neoEntry.key }}</ion-text></ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <ion-grid>
+            <ion-row
+              *ngFor="let neo of neoEntry.value; let i = index;"
+              [ngClass]="{'background': i % 2 === 0 }"
+            >
+              <ion-col>
+                <ion-label><strong>Asteroid Name</strong></ion-label>
+                <ion-text>{{neo.name}}</ion-text>
+              </ion-col>
+              <ion-col class="ion-hide-md-down">
+                <ion-label><strong>Absolute Magnitude</strong></ion-label>
+                <ion-text>{{neo.absolute_magnitude_h}}</ion-text>
+              </ion-col>
+              <ion-col class="ion-hide-xl-down">
+                <ion-label><strong>Estimated Diameter in km</strong></ion-label>
+                <ion-text>
+                  Min:
+                  {{neo.estimated_diameter.kilometers.estimated_diameter_min}}
+                </ion-text>
+                <ion-text>
+                  Max:
+                  {{neo.estimated_diameter.kilometers.estimated_diameter_max}}</ion-text
+                >
+              </ion-col>
+              <ion-col class="ion-hide-md-down">
+                <ion-label><strong>Potentially Hazardous</strong></ion-label>
+                <ion-text
+                  >{{neo.is_potentially_hazardous_asteroid ? 'Yes' :
+                  'No'}}</ion-text
+                >
+              </ion-col>
+              <ion-col class="ion-hide-md-down">
+                <ion-label><strong>Under Observation</strong></ion-label>
+                <ion-text>{{neo.is_sentry_object ? 'Yes' : 'No'}}</ion-text>
+              </ion-col>
+              <ion-col class="view-details">
+                <ion-button
+                  (click)="navigateToDetails(neo.neo_reference_id)"
+                  shape="round"
+                  >View Details</ion-button
+                >
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </ion-grid>
 </ion-content>
 
 <ion-footer [translucent]="true" collapse="fade">
