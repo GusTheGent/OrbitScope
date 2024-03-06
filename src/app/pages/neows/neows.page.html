@@ -7,14 +7,30 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-grid *ngIf="neoFeed">
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-grid *ngIf="neoFeed$ | async as neoFeed; else errorTemplate">
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <ion-text color="primary">
+          <h5>
+            Total Asteroids Observed Count in 8 day range:
+            <ion-chip>{{neoFeed.element_count}}</ion-chip>
+          </h5>
+        </ion-text>
+      </ion-col>
+    </ion-row>
     <ion-accordion-group>
       <ion-accordion
         *ngFor="let neoEntry of neoFeed.near_earth_objects | keyvalue"
       >
         <ion-item slot="header" class="ion-text-center">
-          <ion-label>Date: <ion-text>{{ neoEntry.key }}</ion-text></ion-label>
+          <ion-label
+            >Date:
+            <ion-text style="font-weight: bold">{{ neoEntry.key }}:</ion-text
+            ><ion-chip color="primary"
+              >{{ neoEntry.value.length }}</ion-chip
+            ></ion-label
+          >
         </ion-item>
         <div class="ion-padding" slot="content">
           <ion-grid>
@@ -55,6 +71,7 @@
               <ion-col class="view-details">
                 <ion-button
                   (click)="navigateToDetails(neo.neo_reference_id)"
+                  size="small"
                   shape="round"
                   >View Details</ion-button
                 >
@@ -64,6 +81,18 @@
         </div>
       </ion-accordion>
     </ion-accordion-group>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button (click)="getPrevious(neoFeed.links.previous)"
+          >Previous 8 days</ion-button
+        >
+      </ion-col>
+      <ion-col size="6">
+        <ion-button (click)="getNext(neoFeed.links.next)"
+          >Next 8 days</ion-button
+        >
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>
 
@@ -74,3 +103,8 @@
     </ion-title>
   </ion-toolbar>
 </ion-footer>
+
+<ion-spinner *ngIf="isLoading" name="circles"></ion-spinner>
+<ng-template #errorTemplate>
+  <span class="error-message">{{ errorMessage }}</span>
+</ng-template>

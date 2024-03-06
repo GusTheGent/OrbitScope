@@ -9,7 +9,6 @@ import { ApodPageRoutingModule } from './apod-routing.module';
 import { ApodPage } from './apod.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ApodCardComponent } from './components/apod-card/apod-card.component';
-import { ApodService } from './services/apod.service';
 
 @NgModule({
   imports: [
@@ -20,6 +19,5 @@ import { ApodService } from './services/apod.service';
     SharedModule,
   ],
   declarations: [ApodPage, ApodCardComponent],
-  providers: [ApodService],
 })
 export class ApodPageModule {}

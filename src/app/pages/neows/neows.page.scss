@@ -15,7 +15,11 @@ ion-col {
   color: var(--ion-color-primary-contrast);
 }
 
-ion-row:hover {
+ion-grid ion-row {
+  margin: 1rem 0;
+}
+
+ion-accordion-group ion-row:hover {
   background-color: #cccccc;
 }
 
@@ -31,4 +35,28 @@ ion-accordion.accordion-collapsed ion-item[slot="header"] ion-label ion-text {
 ion-accordion.accordion-expanding ion-item[slot="header"] ion-label ion-text,
 ion-accordion.accordion-expanded ion-item[slot="header"] ion-label ion-text {
   color: var(--ion-text-color);
+}
+
+ion-spinner {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.error-message {
+  font-weight: bold;
+  text-align: center;
+  color: var(--ion-color-danger);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ion-chip {
+  background: #013a70;
+  color: #adefd1;
 }

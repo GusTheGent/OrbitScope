@@ -5,6 +5,8 @@ import { NEOWS_PAGE_INFO_DATA } from './helper/pageInfoData';
 import { NeowsService } from './services/neows.service';
 import { NEO_FEED } from './interfaces/NEO_FEED.interface';
 import { Router } from '@angular/router';
+import { EMPTY, Observable, catchError, finalize } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-neows',
@@ -16,15 +18,22 @@ export class NeowsPage implements OnInit {
   private neowsService = inject(NeowsService);
   private router = inject(Router);
 
-  neoFeed: NEO_FEED;
+  public neoFeed$: Observable<NEO_FEED>;
+  public isLoading: boolean = true;
+  public errorMessage: string = '';
 
   ngOnInit(): void {
-    this.neowsService.getNEO_Feed().subscribe((res) => {
-      this.neoFeed = res;
-      console.log('Count', res.element_count);
-      console.log('Links', res.links);
-      console.log('neos', res.near_earth_objects);
-    });
+    this.neoFeed$ = this.neowsService.getNEO_Feed().pipe(
+      catchError((error: HttpErrorResponse) => {
+        this.errorMessage = error.error.error_message;
+        console.log(this.errorMessage);
+
+        return EMPTY;
+      }),
+      finalize(() => {
+        this.isLoading = false;
+      })
+    );
   }
 
   public async onViewPageInfo(): Promise<void> {
@@ -39,5 +48,31 @@ export class NeowsPage implements OnInit {
 
   public navigateToDetails(id: string): void {
     this.router.navigate([`neows/${id}`]);
+  }
+
+  public getPrevious(previousLink: string): void {
+    this.isLoading = true;
+    this.neoFeed$ = this.neowsService.getPreviousFeed(previousLink).pipe(
+      catchError((error: HttpErrorResponse) => {
+        this.errorMessage = error.error.msg;
+        return EMPTY;
+      }),
+      finalize(() => {
+        this.isLoading = false;
+      })
+    );
+  }
+
+  public getNext(nextLink: string): void {
+    this.isLoading = true;
+    this.neoFeed$ = this.neowsService.getNextFeed(nextLink).pipe(
+      catchError((error: HttpErrorResponse) => {
+        this.errorMessage = error.error.msg;
+        return EMPTY;
+      }),
+      finalize(() => {
+        this.isLoading = false;
+      })
+    );
   }
 }
