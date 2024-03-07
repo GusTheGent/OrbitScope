@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'apod',
-    pathMatch: 'full',
+    pathMatch: 'prefix',
   },
   {
     path: 'apod',

@@ -54,59 +54,59 @@
     "nonProjectFiles": [
       {
         "file": ".browserslistrc",
-        "hash": "7979060078399394427"
+        "hash": "8928530114349553238"
       },
       {
         "file": ".editorconfig",
-        "hash": "6686520031028425313"
+        "hash": "17241496168097493888"
       },
       {
         "file": ".eslintrc.json",
-        "hash": "18210278994710539225"
+        "hash": "3555539555184033037"
       },
       {
         "file": ".gitignore",
-        "hash": "91109559695469517"
+        "hash": "13924459389979241635"
       },
       {
         "file": ".vscode/extensions.json",
-        "hash": "592272277800690021"
+        "hash": "9820145720478233062"
       },
       {
         "file": ".vscode/settings.json",
-        "hash": "1151538777131426085"
+        "hash": "14730831395863803542"
       },
       {
         "file": "angular.json",
-        "hash": "11992048326398934745"
+        "hash": "5962391698463299839"
       },
       {
         "file": "capacitor.config.ts",
-        "hash": "7629212307871506856"
+        "hash": "14343499848894895420"
       },
       {
         "file": "ionic.config.json",
-        "hash": "2605773945057974336"
+        "hash": "5528119768542105965"
       },
       {
         "file": "karma.conf.js",
-        "hash": "13719387092471133633"
+        "hash": "15586218685649057480"
       },
       {
         "file": "package-lock.json",
-        "hash": "7199076974315928014"
+        "hash": "6981290986358391531"
       },
       {
         "file": "package.json",
-        "hash": "7642696969927350191"
+        "hash": "5463558853227219583"
       },
       {
         "file": "src/app/app-routing.module.ts",
-        "hash": "17874806810527920086"
+        "hash": "6623213392283433259"
       },
       {
         "file": "src/app/app.component.html",
-        "hash": "9271715123452402513"
+        "hash": "13560678217904677874"
       },
       {
         "file": "src/app/app.component.scss",
@@ -114,19 +114,19 @@
       },
       {
         "file": "src/app/app.component.spec.ts",
-        "hash": "3120772876538250633"
+        "hash": "3680979414714211701"
       },
       {
         "file": "src/app/app.component.ts",
-        "hash": "2581836759080561433"
+        "hash": "8755441622670700436"
       },
       {
         "file": "src/app/app.module.ts",
-        "hash": "4546307591311648070"
+        "hash": "10918846841357616957"
       },
       {
         "file": "src/app/components/page-info-modal/page-info-modal.component.html",
-        "hash": "6596084274033880164"
+        "hash": "4438010038741000226"
       },
       {
         "file": "src/app/components/page-info-modal/page-info-modal.component.scss",
@@ -134,15 +134,15 @@
       },
       {
         "file": "src/app/components/page-info-modal/page-info-modal.component.spec.ts",
-        "hash": "6952483665140331994"
+        "hash": "12478744132215597581"
       },
       {
         "file": "src/app/components/page-info-modal/page-info-modal.component.ts",
-        "hash": "17887456470180760807"
+        "hash": "6569494882378954085"
       },
       {
         "file": "src/app/components/page-info/page-info.component.html",
-        "hash": "11964451287176250685"
+        "hash": "5932683606295950334"
       },
       {
         "file": "src/app/components/page-info/page-info.component.scss",
@@ -150,11 +150,11 @@
       },
       {
         "file": "src/app/components/page-info/page-info.component.spec.ts",
-        "hash": "516716107475273050"
+        "hash": "1359281587494826262"
       },
       {
         "file": "src/app/components/page-info/page-info.component.ts",
-        "hash": "1791842378444105305"
+        "hash": "10540269499498269058"
       },
       {
         "file": "src/app/components/sidemenu/routes/routeItems.ts",
@@ -162,7 +162,7 @@
       },
       {
         "file": "src/app/components/sidemenu/sidemenu.component.html",
-        "hash": "16355038220431496745"
+        "hash": "683627221667598342"
       },
       {
         "file": "src/app/components/sidemenu/sidemenu.component.scss",
@@ -170,23 +170,23 @@
       },
       {
         "file": "src/app/components/sidemenu/sidemenu.component.spec.ts",
-        "hash": "14850527822925457568"
+        "hash": "13643833164452580599"
       },
       {
         "file": "src/app/components/sidemenu/sidemenu.component.ts",
-        "hash": "7021683284910955499"
+        "hash": "4985749522680489459"
       },
       {
         "file": "src/app/pages/apod/apod-routing.module.ts",
-        "hash": "1107587720405023234"
+        "hash": "8446869963853992177"
       },
       {
         "file": "src/app/pages/apod/apod.module.ts",
-        "hash": "4531511165230639883"
+        "hash": "17617649337690462904"
       },
       {
         "file": "src/app/pages/apod/apod.page.html",
-        "hash": "16147179142207539402"
+        "hash": "15891598735121142990"
       },
       {
         "file": "src/app/pages/apod/apod.page.scss",
@@ -194,15 +194,15 @@
       },
       {
         "file": "src/app/pages/apod/apod.page.spec.ts",
-        "hash": "17081869053735502414"
+        "hash": "17521669240776669120"
       },
       {
         "file": "src/app/pages/apod/apod.page.ts",
-        "hash": "17592153234990270507"
+        "hash": "6906578680010460788"
       },
       {
         "file": "src/app/pages/apod/components/apod-card/apod-card.component.html",
-        "hash": "16196615737935291819"
+        "hash": "6885565951951787743"
       },
       {
         "file": "src/app/pages/apod/components/apod-card/apod-card.component.scss",
@@ -210,11 +210,11 @@
       },
       {
         "file": "src/app/pages/apod/components/apod-card/apod-card.component.spec.ts",
-        "hash": "4898564686304822051"
+        "hash": "10254861365409873446"
       },
       {
         "file": "src/app/pages/apod/components/apod-card/apod-card.component.ts",
-        "hash": "11201265430756254275"
+        "hash": "12620772319162019087"
       },
       {
         "file": "src/app/pages/apod/helper/pageInfoData.ts",
@@ -234,15 +234,15 @@
       },
       {
         "file": "src/app/pages/donki/donki-routing.module.ts",
-        "hash": "5402541212381000606"
+        "hash": "14090553666944536415"
       },
       {
         "file": "src/app/pages/donki/donki.module.ts",
-        "hash": "6313857097129229160"
+        "hash": "9739820225122776709"
       },
       {
         "file": "src/app/pages/donki/donki.page.html",
-        "hash": "9613506697234093705"
+        "hash": "8157852738634909567"
       },
       {
         "file": "src/app/pages/donki/donki.page.scss",
@@ -250,11 +250,11 @@
       },
       {
         "file": "src/app/pages/donki/donki.page.spec.ts",
-        "hash": "13055754695581419444"
+        "hash": "2193779681507644386"
       },
       {
         "file": "src/app/pages/donki/donki.page.ts",
-        "hash": "15291332507059199284"
+        "hash": "16432944661877992429"
       },
       {
         "file": "src/app/pages/donki/helper/pageInfoData.ts",
@@ -262,15 +262,15 @@
       },
       {
         "file": "src/app/pages/earth/earth-routing.module.ts",
-        "hash": "1635377876548248500"
+        "hash": "17544558658698547514"
       },
       {
         "file": "src/app/pages/earth/earth.module.ts",
-        "hash": "18357649753889600629"
+        "hash": "5137959965250940609"
       },
       {
         "file": "src/app/pages/earth/earth.page.html",
-        "hash": "948549072770888216"
+        "hash": "15362632092564797573"
       },
       {
         "file": "src/app/pages/earth/earth.page.scss",
@@ -278,11 +278,11 @@
       },
       {
         "file": "src/app/pages/earth/earth.page.spec.ts",
-        "hash": "10114552562711295535"
+        "hash": "16613374941387237888"
       },
       {
         "file": "src/app/pages/earth/earth.page.ts",
-        "hash": "14253158503715135806"
+        "hash": "15609674828511410792"
       },
       {
         "file": "src/app/pages/earth/helper/pageInfoData.ts",
@@ -290,15 +290,15 @@
       },
       {
         "file": "src/app/pages/eonet/eonet-routing.module.ts",
-        "hash": "13037675194520196638"
+        "hash": "11814866383013046004"
       },
       {
         "file": "src/app/pages/eonet/eonet.module.ts",
-        "hash": "631296143944731262"
+        "hash": "3309302988379548442"
       },
       {
         "file": "src/app/pages/eonet/eonet.page.html",
-        "hash": "14141743323116149015"
+        "hash": "15768948158634479825"
       },
       {
         "file": "src/app/pages/eonet/eonet.page.scss",
@@ -306,11 +306,11 @@
       },
       {
         "file": "src/app/pages/eonet/eonet.page.spec.ts",
-        "hash": "5531458927273314049"
+        "hash": "14137611766389992898"
       },
       {
         "file": "src/app/pages/eonet/eonet.page.ts",
-        "hash": "2537574839009305607"
+        "hash": "1107697677260605346"
       },
       {
         "file": "src/app/pages/eonet/helper/pageInfoData.ts",
@@ -322,15 +322,15 @@
       },
       {
         "file": "src/app/pages/mars-weather/mars-weather-routing.module.ts",
-        "hash": "169457757252634819"
+        "hash": "5005116188134796914"
       },
       {
         "file": "src/app/pages/mars-weather/mars-weather.module.ts",
-        "hash": "13252130534765888615"
+        "hash": "8880968768084356006"
       },
       {
         "file": "src/app/pages/mars-weather/mars-weather.page.html",
-        "hash": "8418470792485861893"
+        "hash": "7764750801728473299"
       },
       {
         "file": "src/app/pages/mars-weather/mars-weather.page.scss",
@@ -338,11 +338,11 @@
       },
       {
         "file": "src/app/pages/mars-weather/mars-weather.page.spec.ts",
-        "hash": "13891576600158724204"
+        "hash": "5788611757130973159"
       },
       {
         "file": "src/app/pages/mars-weather/mars-weather.page.ts",
-        "hash": "707917097597848190"
+        "hash": "13183700011815429645"
       },
       {
         "file": "src/app/pages/mars-weather/services/mars-weather.service.spec.ts",
@@ -353,32 +353,68 @@
         "hash": "3769161866310839990"
       },
       {
+        "file": "src/app/pages/neows/components/helper/OrbitalData.ts",
+        "hash": "17464637082340543263"
+      },
+      {
+        "file": "src/app/pages/neows/components/neo-details/neo-details.component.html",
+        "hash": "13157159482557198731"
+      },
+      {
+        "file": "src/app/pages/neows/components/neo-details/neo-details.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/pages/neows/components/neo-details/neo-details.component.spec.ts",
+        "hash": "12359722388151929693"
+      },
+      {
+        "file": "src/app/pages/neows/components/neo-details/neo-details.component.ts",
+        "hash": "1334246715191039358"
+      },
+      {
         "file": "src/app/pages/neows/helper/pageInfoData.ts",
         "hash": "17786318014910220681"
       },
       {
+        "file": "src/app/pages/neows/interfaces/NEO_FEED.interface.ts",
+        "hash": "4029724879668331782"
+      },
+      {
+        "file": "src/app/pages/neows/interfaces/NEO_LOOKUP.interface.ts",
+        "hash": "16336192886119879921"
+      },
+      {
         "file": "src/app/pages/neows/neows-routing.module.ts",
-        "hash": "8120979104315372798"
+        "hash": "13564819024947733149"
       },
       {
         "file": "src/app/pages/neows/neows.module.ts",
-        "hash": "6668780089430299993"
+        "hash": "17716521267815180679"
       },
       {
         "file": "src/app/pages/neows/neows.page.html",
-        "hash": "368158914348303689"
+        "hash": "12940318009813896303"
       },
       {
         "file": "src/app/pages/neows/neows.page.scss",
-        "hash": "350772139145792090"
+        "hash": "4886201054667623307"
       },
       {
         "file": "src/app/pages/neows/neows.page.spec.ts",
-        "hash": "18050264857203775934"
+        "hash": "13590299670752211757"
       },
       {
         "file": "src/app/pages/neows/neows.page.ts",
-        "hash": "18319199789929201440"
+        "hash": "14605534936676495083"
+      },
+      {
+        "file": "src/app/pages/neows/services/neows.service.spec.ts",
+        "hash": "17902958612105948669"
+      },
+      {
+        "file": "src/app/pages/neows/services/neows.service.ts",
+        "hash": "5940854481461848652"
       },
       {
         "file": "src/app/shared/endpoints/endpoints.ts",
@@ -387,6 +423,10 @@
       {
         "file": "src/app/shared/interfaces/PageInfoData.interface.ts",
         "hash": "2631808127169832305"
+      },
+      {
+        "file": "src/app/shared/pipes/OrbitalData.pipe.ts",
+        "hash": "10922534598531939622"
       },
       {
         "file": "src/app/shared/services/theme-switch.service.spec.ts",
@@ -398,7 +438,7 @@
       },
       {
         "file": "src/app/shared/shared.module.ts",
-        "hash": "9100363322372122187"
+        "hash": "9573051677928306350"
       },
       {
         "file": "src/assets/icon/favicon.png",
@@ -406,35 +446,35 @@
       },
       {
         "file": "src/assets/shapes.svg",
-        "hash": "4708889011185296100"
+        "hash": "6713572288142939778"
       },
       {
         "file": "src/environments/environment.prod.ts",
-        "hash": "5406836414239361753"
+        "hash": "11847377846594200203"
       },
       {
         "file": "src/environments/environment.ts",
-        "hash": "7569157714651641349"
+        "hash": "2099569451613527428"
       },
       {
         "file": "src/global.scss",
-        "hash": "12229547442677363606"
+        "hash": "12907501133434625258"
       },
       {
         "file": "src/index.html",
-        "hash": "14844666624802573841"
+        "hash": "3618460384310141695"
       },
       {
         "file": "src/main.ts",
-        "hash": "3447864527603543144"
+        "hash": "14418682105238715715"
       },
       {
         "file": "src/polyfills.ts",
-        "hash": "16163444994210036896"
+        "hash": "6334563476032399242"
       },
       {
         "file": "src/test.ts",
-        "hash": "12412031923219697029"
+        "hash": "7876741224155508608"
       },
       {
         "file": "src/theme/page-info-modal.scss",
@@ -442,27 +482,27 @@
       },
       {
         "file": "src/theme/theme-switch.scss",
-        "hash": "6258498584348801974"
+        "hash": "4001124608027792346"
       },
       {
         "file": "src/theme/variables.scss",
-        "hash": "10913640912744083311"
+        "hash": "3613800786199488944"
       },
       {
         "file": "src/zone-flags.ts",
-        "hash": "3323586086306676158"
+        "hash": "6117193595888083885"
       },
       {
         "file": "tsconfig.app.json",
-        "hash": "9041030522571917449"
+        "hash": "7685451593566938896"
       },
       {
         "file": "tsconfig.json",
-        "hash": "13920366671256708598"
+        "hash": "10956764445838042787"
       },
       {
         "file": "tsconfig.spec.json",
-        "hash": "17198424518534092990"
+        "hash": "14277469517724802009"
       }
     ]
   }

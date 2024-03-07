@@ -1,0 +1,21 @@
+.orbit-class {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.close-approach-data-class {
+  border: 2px solid var(--ion-color-primary);
+  margin: 0.3rem;
+}
+
+ion-spinner {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

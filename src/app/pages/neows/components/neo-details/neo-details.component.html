@@ -3,8 +3,216 @@
     <ion-buttons slot="start">
       <ion-back-button default-href="#"></ion-back-button>
     </ion-buttons>
-    <ion-title>Details</ion-title>
+    <ion-title>Asteroid Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="false"> </ion-content>
+<ion-content [fullscreen]="false" class="ion-padding" *ngIf="neoLookup">
+  <!-- Basic Information Card -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Asteroid Name: {{ neoLookup.name }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label>ID:</ion-label>
+          <ion-note>{{ neoLookup.id }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>NEO Reference ID:</ion-label>
+          <ion-note>{{ neoLookup.neo_reference_id }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Absolute Magnitude (H):</ion-label>
+          <ion-note>{{ neoLookup.absolute_magnitude_h }}</ion-note>
+        </ion-item>
+        <!-- Add more basic information here -->
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Estimated Diameter Card -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title color="primary">Estimated Diameter</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label>Kilometers:</ion-label>
+          <ion-note
+            >Min:
+            {{
+              neoLookup.estimated_diameter.kilometers.estimated_diameter_min
+            }}, Max:
+            {{
+              neoLookup.estimated_diameter.kilometers.estimated_diameter_max
+            }}</ion-note
+          >
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Close Approach Data Card -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title color="primary">
+        <ion-icon name="calendar"></ion-icon> Close Approach Data {{neoLookup.close_approach_data.length}}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-accordion-group *ngIf="neoLookup.close_approach_data.length > 0">
+        <ion-accordion *ngFor="let approach of paginatedData; let i = index">
+          <ion-item slot="header">
+            <ion-label>{{ approach.close_approach_date_full }}</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-grid class="ion-padding">
+              <ion-row
+                *ngFor="let column of closeApproachDataColumns"
+                class="close-approach-data-class"
+              >
+                <ng-container
+                  *ngIf="
+                    column.value !== 'relative_velocity' &&
+                    column.value !== 'miss_distance'
+                  "
+                >
+                  <ion-col sizeSm="6" sizeMd="4" sizeLg="3" sizeXl="3">
+                    {{ column.key }}:
+                  </ion-col>
+                  <ion-col sizeSm="6" sizeMd="4" sizeLg="3" sizeXl="3">
+                    {{ approach | closeApproachData : column.value }}
+                  </ion-col>
+                </ng-container>
+                <ng-container *ngIf="column.value === 'relative_velocity'">
+                  <ion-col sizeSm="6" sizeMd="4" sizeLg="2">
+                    {{ column.key }}:
+                  </ion-col>
+                  <ion-col sizeSm="6" sizeMd="4" sizeLg="2">
+                    Km/s:
+                    {{
+                      approach.relative_velocity
+                        | closeApproachData : "kilometers_per_second"
+                    }}
+                  </ion-col>
+                  <ion-col sizeLg="2" class="ion-hide-md-down">
+                    Km/h:
+                    {{
+                      approach.relative_velocity
+                        | closeApproachData : "kilometers_per_hour"
+                    }}
+                  </ion-col>
+                  <ion-col sizeLg="2" class="ion-hide-md-down">
+                    M/s:
+                    {{
+                      approach.relative_velocity
+                        | closeApproachData : "miles_per_hour"
+                    }}
+                  </ion-col>
+                </ng-container>
+                <ng-container *ngIf="column.value === 'miss_distance'">
+                  <ion-col sizeSm="6" sizeMd="6" sizeLg="2"
+                    >Miss Distance</ion-col
+                  >
+                  <ion-col sizeSm="6" sizeMd="6" sizeLg="2">
+                    Kilometers:
+                    {{
+                      approach.miss_distance | closeApproachData : "kilometers"
+                    }}
+                  </ion-col>
+                  <ion-col sizeLg="2" class="ion-hide-md-down">
+                    Astronomical:
+                    {{
+                      approach.miss_distance
+                        | closeApproachData : "astronomical"
+                    }}
+                  </ion-col>
+                  <ion-col sizeLg="2" class="ion-hide-md-down">
+                    Lunar:
+                    {{ approach.miss_distance | closeApproachData : "lunar" }}
+                  </ion-col>
+                  <ion-col sizeLg="2" class="ion-hide-md-down">
+                    Miles:
+                    {{ approach.miss_distance | closeApproachData : "miles" }}
+                  </ion-col>
+                </ng-container>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+      <div class="pagination-controls">
+        <ion-button (click)="prevPage()" [disabled]="currentPage === 1"
+          >Previous</ion-button
+        >
+        <ion-button (click)="nextPage()" [disabled]="currentPage === totalPages"
+          >Next</ion-button
+        >
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Orbital Data Card -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title color="primary">Orbital Data</ion-card-title>
+    </ion-card-header>
+
+    <ion-list>
+      <ng-container *ngFor="let orbitalDatum of orbitalDataColumns">
+        <ion-item *ngIf="orbitalDatum.value !== 'orbit_class'">
+          <ion-label>{{ orbitalDatum.key }}</ion-label>
+          <ion-text color="primary" style="margin: 1rem">
+            {{ neoLookup.orbital_data | orbitalData : orbitalDatum.value }}
+          </ion-text>
+        </ion-item>
+        <ion-accordion-group>
+          <ion-accordion *ngIf="orbitalDatum.value === 'orbit_class'">
+            <ion-item slot="header">
+              <ion-label>Orbit Class</ion-label>
+            </ion-item>
+            <div class="orbit-class ion-padding" slot="content">
+              <div>
+                <strong>Type:</strong>
+                <ion-text color="primary">
+                  {{
+                    neoLookup.orbital_data
+                      | orbitalData : "orbit_class.orbit_class_type"
+                  }}
+                </ion-text>
+              </div>
+              <div>
+                <strong>Description:</strong>
+                <ion-text color="primary">
+                  {{
+                    neoLookup.orbital_data
+                      | orbitalData : "orbit_class.orbit_class_description"
+                  }}
+                </ion-text>
+              </div>
+              <div>
+                <strong>Range:</strong>
+                <ion-text color="primary">
+                  {{
+                    neoLookup.orbital_data
+                      | orbitalData : "orbit_class.orbit_class_range"
+                  }}
+                </ion-text>
+              </div>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </ng-container>
+    </ion-list>
+  </ion-card>
+</ion-content>
+
+<!-- ADD SKELETON LOADER INSTEAD OF SPINNER -->
+<ion-spinner *ngIf="isLoading" name="circles"></ion-spinner>
