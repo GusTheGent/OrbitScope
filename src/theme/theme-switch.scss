@@ -44,6 +44,10 @@ ion-app.light-mode {
     --background: var(--ion-color-primary);
     --color: var(--ion-text-color);
   }
+  ion-item,
+  item-divider {
+    --border-color: var(--ion-text-color);
+  }
 }
 
 ion-app.dark-mode {
@@ -75,5 +79,9 @@ ion-app.dark-mode {
   ion-accordion.accordion-expanded ion-item[slot="header"] {
     --background: var(--ion-color-primary);
     --color: var(--ion-text-color);
+  }
+  ion-item,
+  item-divider {
+    --border-color: var(--ion-text-color);
   }
 }

@@ -11,6 +11,10 @@
   margin: 0.3rem;
 }
 
+.estimated-diameter {
+  background-color: var(--ion-color-primary);
+}
+
 ion-spinner {
   width: 50px;
   height: 50px;
@@ -18,4 +22,13 @@ ion-spinner {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+ion-chip {
+  background: #013a70;
+  color: #adefd1;
+}
+
+ion-note {
+  margin: 1rem;
 }

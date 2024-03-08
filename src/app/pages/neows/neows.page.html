@@ -23,7 +23,7 @@
       <ion-accordion
         *ngFor="let neoEntry of neoFeed.near_earth_objects | keyvalue"
       >
-        <ion-item slot="header" class="ion-text-center">
+        <ion-item slot="header" class="ion-text-start">
           <ion-label
             >Date:
             <ion-text style="font-weight: bold">{{ neoEntry.key }}:</ion-text
@@ -37,6 +37,7 @@
             <ion-row
               *ngFor="let neo of neoEntry.value; let i = index;"
               [ngClass]="{'background': i % 2 === 0 }"
+              class="ion-padding"
             >
               <ion-col>
                 <ion-label><strong>Asteroid Name</strong></ion-label>

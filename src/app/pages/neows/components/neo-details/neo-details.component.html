@@ -7,19 +7,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="false" class="ion-padding" *ngIf="neoLookup">
+<ion-content [fullscreen]="true" class="ion-padding" *ngIf="neoLookup">
   <!-- Basic Information Card -->
-  <ion-card>
+  <ion-card *ngIf="!isLoading">
     <ion-card-header>
-      <ion-card-title>Asteroid Name: {{ neoLookup.name }}</ion-card-title>
+      <ion-card-title
+        >Asteroid Name:
+        <ion-text color="primary">{{
+          neoLookup.designation
+        }}</ion-text></ion-card-title
+      >
     </ion-card-header>
 
-    <ion-card-content>
-      <ion-list lines="none">
-        <ion-item>
-          <ion-label>ID:</ion-label>
-          <ion-note>{{ neoLookup.id }}</ion-note>
-        </ion-item>
+    <ion-card-content class="ion-padding">
+      <ion-list>
         <ion-item>
           <ion-label>NEO Reference ID:</ion-label>
           <ion-note>{{ neoLookup.neo_reference_id }}</ion-note>
@@ -28,7 +29,16 @@
           <ion-label>Absolute Magnitude (H):</ion-label>
           <ion-note>{{ neoLookup.absolute_magnitude_h }}</ion-note>
         </ion-item>
-        <!-- Add more basic information here -->
+        <ion-item>
+          <ion-label>Is Potentially Hazardous:</ion-label>
+          <ion-note>{{
+            neoLookup.is_potentially_hazardous_asteroid ? "YES" : "NO"
+          }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Is Sentry Object:</ion-label>
+          <ion-note>{{ neoLookup.is_sentry_object ? "YES" : "NO" }}</ion-note>
+        </ion-item>
       </ion-list>
     </ion-card-content>
   </ion-card>
@@ -39,21 +49,85 @@
       <ion-card-title color="primary">Estimated Diameter</ion-card-title>
     </ion-card-header>
 
-    <ion-card-content>
-      <ion-list lines="none">
-        <ion-item>
-          <ion-label>Kilometers:</ion-label>
-          <ion-note
-            >Min:
+    <ion-card-content class="ion-padding">
+      <ion-grid>
+        <ion-row class="estimated-diameter">
+          <ion-col class="ion-text-center" pull="4" size="4" push="4"
+            ><strong>Kilometers</strong></ion-col
+          >
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center" size="6"
+            ><strong>Min:</strong>
             {{
               neoLookup.estimated_diameter.kilometers.estimated_diameter_min
-            }}, Max:
+            }}</ion-col
+          >
+          <ion-col class="ion-text-center" size="6"
+            ><strong>Max:</strong>
             {{
               neoLookup.estimated_diameter.kilometers.estimated_diameter_max
-            }}</ion-note
+            }}</ion-col
           >
-        </ion-item>
-      </ion-list>
+        </ion-row>
+        <ion-row class="estimated-diameter">
+          <ion-col class="ion-text-center" pull="4" size="4" push="4"
+            ><strong>Meters</strong></ion-col
+          >
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center" size="6"
+            ><strong>Min:</strong>
+            {{
+              neoLookup.estimated_diameter.meters.estimated_diameter_min
+            }}</ion-col
+          >
+          <ion-col class="ion-text-center" size="6"
+            ><strong>Max:</strong>
+            {{
+              neoLookup.estimated_diameter.meters.estimated_diameter_max
+            }}</ion-col
+          >
+        </ion-row>
+        <ion-row class="estimated-diameter">
+          <ion-col class="ion-text-center" pull="4" size="4" push="4"
+            ><strong>Miles</strong></ion-col
+          >
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center" size="6"
+            ><strong>Min:</strong>
+            {{
+              neoLookup.estimated_diameter.miles.estimated_diameter_min
+            }}</ion-col
+          >
+          <ion-col class="ion-text-center" size="6"
+            ><strong>Max:</strong>
+            {{
+              neoLookup.estimated_diameter.miles.estimated_diameter_max
+            }}</ion-col
+          >
+        </ion-row>
+        <ion-row class="estimated-diameter">
+          <ion-col class="ion-text-center" pull="4" size="4" push="4"
+            ><strong>Feet</strong></ion-col
+          >
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center" size="6"
+            ><strong>Min:</strong>
+            {{
+              neoLookup.estimated_diameter.feet.estimated_diameter_min
+            }}</ion-col
+          >
+          <ion-col class="ion-text-center" size="6"
+            ><strong>Max:</strong>
+            {{
+              neoLookup.estimated_diameter.feet.estimated_diameter_max
+            }}</ion-col
+          >
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
 
@@ -61,11 +135,12 @@
   <ion-card>
     <ion-card-header>
       <ion-card-title color="primary">
-        <ion-icon name="calendar"></ion-icon> Close Approach Data {{neoLookup.close_approach_data.length}}
+        <ion-icon name="calendar"></ion-icon> Close Approach Data:
+        <ion-chip>{{ neoLookup.close_approach_data.length }}</ion-chip>
       </ion-card-title>
     </ion-card-header>
 
-    <ion-card-content>
+    <ion-card-content class="ion-padding">
       <ion-accordion-group *ngIf="neoLookup.close_approach_data.length > 0">
         <ion-accordion *ngFor="let approach of paginatedData; let i = index">
           <ion-item slot="header">
@@ -83,7 +158,13 @@
                     column.value !== 'miss_distance'
                   "
                 >
-                  <ion-col sizeSm="6" sizeMd="4" sizeLg="3" sizeXl="3">
+                  <ion-col
+                    sizeSm="6"
+                    sizeMd="4"
+                    sizeLg="3"
+                    sizeXl="3"
+                    color="primary"
+                  >
                     {{ column.key }}:
                   </ion-col>
                   <ion-col sizeSm="6" sizeMd="4" sizeLg="3" sizeXl="3">
@@ -165,54 +246,55 @@
       <ion-card-title color="primary">Orbital Data</ion-card-title>
     </ion-card-header>
 
-    <ion-list>
-      <ng-container *ngFor="let orbitalDatum of orbitalDataColumns">
-        <ion-item *ngIf="orbitalDatum.value !== 'orbit_class'">
-          <ion-label>{{ orbitalDatum.key }}</ion-label>
-          <ion-text color="primary" style="margin: 1rem">
-            {{ neoLookup.orbital_data | orbitalData : orbitalDatum.value }}
-          </ion-text>
-        </ion-item>
-        <ion-accordion-group>
-          <ion-accordion *ngIf="orbitalDatum.value === 'orbit_class'">
-            <ion-item slot="header">
-              <ion-label>Orbit Class</ion-label>
-            </ion-item>
-            <div class="orbit-class ion-padding" slot="content">
-              <div>
-                <strong>Type:</strong>
-                <ion-text color="primary">
-                  {{
-                    neoLookup.orbital_data
-                      | orbitalData : "orbit_class.orbit_class_type"
-                  }}
-                </ion-text>
+    <ion-card-content class="ion-padding">
+      <ion-list>
+        <ng-container *ngFor="let orbitalDatum of orbitalDataColumns">
+          <ion-item *ngIf="orbitalDatum.value !== 'orbit_class'">
+            <ion-label>{{ orbitalDatum.key }}</ion-label>
+            <ion-text color="primary" style="margin: 1rem">
+              {{ neoLookup.orbital_data | orbitalData : orbitalDatum.value }}
+            </ion-text>
+          </ion-item>
+          <ion-accordion-group>
+            <ion-accordion *ngIf="orbitalDatum.value === 'orbit_class'">
+              <ion-item slot="header">
+                <ion-label>Orbit Class</ion-label>
+              </ion-item>
+              <div class="orbit-class ion-padding" slot="content">
+                <div>
+                  <strong>Type:</strong>
+                  <ion-text color="primary">
+                    {{
+                      neoLookup.orbital_data
+                        | orbitalData : "orbit_class.orbit_class_type"
+                    }}
+                  </ion-text>
+                </div>
+                <div>
+                  <strong>Description:</strong>
+                  <ion-text color="primary">
+                    {{
+                      neoLookup.orbital_data
+                        | orbitalData : "orbit_class.orbit_class_description"
+                    }}
+                  </ion-text>
+                </div>
+                <div>
+                  <strong>Range:</strong>
+                  <ion-text color="primary">
+                    {{
+                      neoLookup.orbital_data
+                        | orbitalData : "orbit_class.orbit_class_range"
+                    }}
+                  </ion-text>
+                </div>
               </div>
-              <div>
-                <strong>Description:</strong>
-                <ion-text color="primary">
-                  {{
-                    neoLookup.orbital_data
-                      | orbitalData : "orbit_class.orbit_class_description"
-                  }}
-                </ion-text>
-              </div>
-              <div>
-                <strong>Range:</strong>
-                <ion-text color="primary">
-                  {{
-                    neoLookup.orbital_data
-                      | orbitalData : "orbit_class.orbit_class_range"
-                  }}
-                </ion-text>
-              </div>
-            </div>
-          </ion-accordion>
-        </ion-accordion-group>
-      </ng-container>
-    </ion-list>
+            </ion-accordion>
+          </ion-accordion-group>
+        </ng-container>
+      </ion-list>
+    </ion-card-content>
   </ion-card>
 </ion-content>
 
-<!-- ADD SKELETON LOADER INSTEAD OF SPINNER -->
 <ion-spinner *ngIf="isLoading" name="circles"></ion-spinner>
