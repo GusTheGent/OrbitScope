@@ -7,6 +7,8 @@
     "ng": "ng",
     "start": "ng serve -o --host 0.0.0.0",
     "build": "ng build",
+    "build-prod": "ng build --base-href https://gusthegent.github.io/OrbitScope/",
+    "gh-pages-dir": "npx angular-cli-ghpages --dir=www",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
