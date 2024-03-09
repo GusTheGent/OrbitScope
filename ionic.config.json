@@ -1,7 +1,0 @@
-{
-  "name": "OrbitScope",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
