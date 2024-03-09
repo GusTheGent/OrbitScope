@@ -31,10 +31,12 @@ export class NeowsService {
   }
 
   public getPreviousFeed(url: string): Observable<NEO_FEED> {
-    return this.http.get<NEO_FEED>(url);
+    const modifiedUrl = url.replace('http', 'https');
+    return this.http.get<NEO_FEED>(modifiedUrl);
   }
 
   public getNextFeed(url: string): Observable<NEO_FEED> {
-    return this.http.get<NEO_FEED>(url);
+    const modifiedUrl = url.replace('http', 'https');
+    return this.http.get<NEO_FEED>(modifiedUrl);
   }
 }
