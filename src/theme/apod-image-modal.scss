@@ -1,0 +1,8 @@
+.apod-modal {
+  --width: 100% !important;
+  --height: 100% !important;
+  --background: rgba(44, 39, 45, 0.2) !important;
+  &::part(content) {
+    backdrop-filter: blur(12px) !important;
+  }
+}

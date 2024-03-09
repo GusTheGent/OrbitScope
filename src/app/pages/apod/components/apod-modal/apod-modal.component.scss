@@ -1,0 +1,11 @@
+.apod-image-content {
+  --background: rgba(112, 105, 112, 0.2) !important;
+  &::part(content) {
+    backdrop-filter: blur(12px) !important;
+  }
+}
+
+.pinch-zoom {
+  width: 100% !important;
+  height: 100% !important;
+}

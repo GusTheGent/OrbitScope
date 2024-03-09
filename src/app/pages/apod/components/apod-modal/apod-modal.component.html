@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button size="small" fill="clear" (click)="onCloseModal()">
+        <ion-icon slot="icon-only" size="large" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-start">HD Image</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="apod-image-content">
+  <ion-progress-bar *ngIf="isLoading" type="indeterminate"></ion-progress-bar>
+  <pinch-zoom class="pinch-zoom" backgroundColor="rgba(112, 105, 112, 0.2)">
+    <ion-img
+      [src]="data"
+      (ionImgDidLoad)="didLoad($event)"
+      (ionImgWillLoad)="willLoad($event)"
+    ></ion-img>
+  </pinch-zoom>
+</ion-content>

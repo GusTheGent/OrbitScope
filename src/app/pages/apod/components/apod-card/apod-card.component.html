@@ -29,5 +29,9 @@
     {{ apodData.explanation }}
   </ion-card-content>
 
-  <ion-button *ngIf="apodData.media_type === 'image'">HD picture</ion-button>
+  <ion-button
+    *ngIf="apodData.media_type === 'image'"
+    (click)="onOpenHDImageModal()"
+    >HD Image</ion-button
+  >
 </ion-card>

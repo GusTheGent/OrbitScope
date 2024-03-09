@@ -9,6 +9,9 @@ import { ApodPageRoutingModule } from './apod-routing.module';
 import { ApodPage } from './apod.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ApodCardComponent } from './components/apod-card/apod-card.component';
+import { ApodModalComponent } from './components/apod-modal/apod-modal.component';
+
+import { PinchZoomModule } from '@meddv/ngx-pinch-zoom';
 
 @NgModule({
   imports: [
@@ -17,7 +20,8 @@ import { ApodCardComponent } from './components/apod-card/apod-card.component';
     IonicModule,
     ApodPageRoutingModule,
     SharedModule,
+    PinchZoomModule,
   ],
-  declarations: [ApodPage, ApodCardComponent],
+  declarations: [ApodPage, ApodCardComponent, ApodModalComponent],
 })
 export class ApodPageModule {}
