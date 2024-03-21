@@ -1,0 +1,47 @@
+.article-details-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.article-image-container {
+  margin-bottom: 20px;
+}
+
+.article-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.article-content {
+  text-align: center;
+}
+
+.article-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.article-summary {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.article-info {
+  font-size: 14px;
+}
+
+.published-date {
+  color: #999;
+}
+
+.launches,
+.events,
+.news-site {
+  color: #007bff;
+  margin-top: 5px;
+}

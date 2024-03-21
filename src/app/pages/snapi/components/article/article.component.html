@@ -1,0 +1,15 @@
+<ion-card class="article-card" (click)="navigateToDetails(article.id)">
+  <img [src]="article.image_url" alt="Article Image" class="article-image" />
+  <ion-card-header>
+    <ion-card-title>{{ article.title }}</ion-card-title>
+    <ion-card-subtitle class="published-date"
+      >Published: {{ article.published_at | date }}</ion-card-subtitle
+    >
+  </ion-card-header>
+  <ion-card-content>
+    <ion-note
+      ><span style="color: #007bff">Source: </span
+      >{{ article.news_site }}</ion-note
+    >
+  </ion-card-content>
+</ion-card>

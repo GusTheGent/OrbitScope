@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Space News API</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-grid *ngIf="articles$ | async as articles">
+    <ion-row>
+      <ion-col *ngFor="let article of articles.results.slice(0, 5)">
+        <app-article [article]="article"></app-article>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let article of articles.results.slice(5, 10)">
+        <app-article [article]="article"></app-article>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-text-center">
+      <ion-col *ngIf="articles.previous">
+        <ion-button
+          fill="outline"
+          size="small"
+          (click)="getPreviousArticleFeed(articles.previous)"
+          >Previous Articles</ion-button
+        >
+      </ion-col>
+      <ion-col *ngIf="articles.next">
+        <ion-button
+          fill="outline"
+          size="small"
+          (click)="getNextArticleFeed(articles.next)"
+          >Next Articles</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-spinner *ngIf="isLoading" name="circles"></ion-spinner>

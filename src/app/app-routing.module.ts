@@ -13,16 +13,21 @@ const routes: Routes = [
       import('./pages/apod/apod.module').then((m) => m.ApodPageModule),
   },
   {
+    path: 'neows',
+    loadChildren: () =>
+      import('./pages/neows/neows.module').then((m) => m.NeowsPageModule),
+  },
+  {
+    path: 'snapi',
+    loadChildren: () =>
+      import('./pages/snapi/snapi.module').then((m) => m.SnapiPageModule),
+  },
+  {
     path: 'mars-weather',
     loadChildren: () =>
       import('./pages/mars-weather/mars-weather.module').then(
         (m) => m.MarsWeatherPageModule
       ),
-  },
-  {
-    path: 'neows',
-    loadChildren: () =>
-      import('./pages/neows/neows.module').then((m) => m.NeowsPageModule),
   },
   {
     path: 'eonet',
@@ -38,6 +43,11 @@ const routes: Routes = [
     path: 'donki',
     loadChildren: () =>
       import('./pages/donki/donki.module').then((m) => m.DonkiPageModule),
+  },
+  {
+    path: 'snapi',
+    loadChildren: () =>
+      import('./pages/snapi/snapi.module').then((m) => m.SnapiPageModule),
   },
 ];
 

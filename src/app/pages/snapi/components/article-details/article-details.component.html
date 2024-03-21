@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Back</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  [fullscreen]="true"
+  class="ion-padding"
+  *ngIf="article$ | async as article"
+>
+  <div class="article-details-container">
+    <div class="article-image-container">
+      <img
+        [src]="article.image_url"
+        alt="Article Image"
+        class="article-image"
+      />
+    </div>
+    <div class="article-content">
+      <h2 class="article-title">{{ article.title }}</h2>
+      <p class="article-summary">{{ article.summary }}</p>
+      <div class="article-info">
+        <p class="published-date">
+          Published: {{ article.published_at | date }}
+        </p>
+        <p *ngIf="article.launches.length > 0" class="launches">
+          Launches:
+          <span *ngFor="let launch of article.launches; let last = last">
+            {{ launch.provider }}<span *ngIf="!last">, </span>
+          </span>
+        </p>
+        <p *ngIf="article.events.length > 0" class="events">
+          Events:
+          <span *ngFor="let event of article.events; let last = last">
+            {{ event.provider }}<span *ngIf="!last">, </span>
+          </span>
+        </p>
+        <p class="news-site">Source: {{ article.news_site }}</p>
+        <ion-button
+          shape="round"
+          fill="outline"
+          (click)="openSource(article.url)"
+          >Read more from source</ion-button
+        >
+      </div>
+    </div>
+  </div>
+</ion-content>
