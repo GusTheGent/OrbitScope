@@ -1,34 +1,36 @@
-<div class="overview-content">
-  <div class="planet-details">
-    <div class="planet-info">
-      <img
-        [src]="'assets/solar-system/' + planet?.id + '.jpg'"
-        alt="Planet Image"
-        class="planet-image"
-      />
-      <h1 class="planet-name">{{ planet?.englishName }}</h1>
-      <p class="planet-type" *ngIf="planet?.bodyType">
-        Body Type: {{ planet?.bodyType }}
-      </p>
-    </div>
-    <div class="planet-description">
-      <p>
-        Discovered:
-        {{ planet?.discoveryDate ? planet?.discoveryDate : "Not Available" }}
-      </p>
-      <p>
-        Discovered by:
-        {{ planet?.discoveredBy ? planet?.discoveredBy : "Not Available" }}
-      </p>
-      <div *ngIf="planet?.moons?.length! > 0">
-        <ion-select label="Moons">
-          <ion-select-option
-            *ngFor="let moon of planet?.moons"
-            [value]="moon?.moon"
-            >{{ moon?.moon }}</ion-select-option
-          >
-        </ion-select>
+<ion-content [fullscreen]="true">
+  <div class="overview-content">
+    <div class="planet-details">
+      <div class="planet-info">
+        <img
+          [src]="'assets/solar-system/' + planet?.id + '.jpg'"
+          alt="Planet Image"
+          class="planet-image"
+        />
+        <h1 class="planet-name">{{ planet?.englishName }}</h1>
+        <p class="planet-type" *ngIf="planet?.bodyType">
+          Body Type: {{ planet?.bodyType }}
+        </p>
+      </div>
+      <div class="planet-description">
+        <p>
+          Discovered:
+          {{ planet?.discoveryDate ? planet?.discoveryDate : "Not Available" }}
+        </p>
+        <p>
+          Discovered by:
+          {{ planet?.discoveredBy ? planet?.discoveredBy : "Not Available" }}
+        </p>
+        <div *ngIf="planet?.moons?.length! > 0">
+          <ion-select label="Moons">
+            <ion-select-option
+              *ngFor="let moon of planet?.moons"
+              [value]="moon?.moon"
+              >{{ moon?.moon }}</ion-select-option
+            >
+          </ion-select>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</ion-content>
