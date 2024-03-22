@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ARTICLE_FEED } from '../interfaces/ARTICLE_FEED.interface';
 import { ARTICLE } from '../interfaces/ARTICLE.interface';
+import { ENDPOINTS } from 'src/app/shared/endpoints/endpoints';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,9 @@ export class SnapiService {
   private BASE_SNAPI_URL: string = environment.BASE_SNAPI_URL;
 
   getArticleFeed(): Observable<ARTICLE_FEED> {
-    return this.http.get<ARTICLE_FEED>(`${this.BASE_SNAPI_URL}/articles`);
+    return this.http.get<ARTICLE_FEED>(
+      `${this.BASE_SNAPI_URL}/${ENDPOINTS.SNAPI_ARTICLES}`
+    );
   }
 
   getNextArticleFeed(url: string): Observable<ARTICLE_FEED> {
@@ -25,6 +28,8 @@ export class SnapiService {
   }
 
   getArticleById(id: string): Observable<ARTICLE> {
-    return this.http.get<ARTICLE>(`${this.BASE_SNAPI_URL}/articles/${id}`);
+    return this.http.get<ARTICLE>(
+      `${this.BASE_SNAPI_URL}/${ENDPOINTS.SNAPI_ARTICLES}/${id}`
+    );
   }
 }

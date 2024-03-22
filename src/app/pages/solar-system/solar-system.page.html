@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Solar System</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-row class="solar-system-title-container">
+    <ion-col size="12">
+      <img
+        [@fadeInSlideUp]
+        src="assets/solar-system/solar-system.jpg"
+        alt="Solar System Image"
+        class="solar-system-image"
+      />
+      <h1 class="solar-system-title">
+        Explore the Planets of Our Solar System
+      </h1>
+    </ion-col>
+  </ion-row>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        *ngFor="let planet of planets"
+        sizeXs="12"
+        sizeSm="12"
+        sizeMd="6"
+        sizeLg="3"
+        sizeXl="3"
+      >
+        <app-planet-card [planet]="planet"></app-planet-card
+      ></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-spinner *ngIf="isLoading" name="circles"></ion-spinner>

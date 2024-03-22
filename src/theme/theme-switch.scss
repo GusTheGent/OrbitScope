@@ -26,6 +26,7 @@ ion-app.light-mode {
   color: var(--ion-text-color);
   ion-list-header,
   ion-card-title,
+  .alert-radio-label,
   ion-card-content {
     color: var(--ion-text-color);
   }
@@ -56,6 +57,7 @@ ion-app.dark-mode {
 
   ion-list-header,
   ion-card-title,
+  .alert-radio-label,
   ion-card-content {
     color: var(--ion-text-color);
   }

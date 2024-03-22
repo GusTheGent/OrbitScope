@@ -20,6 +20,12 @@ export const routeItems: IRouteItem[] = [
     disabled: false,
   },
   {
+    title: 'Solar System',
+    url: 'solar-system',
+    icon: 'sunny',
+    disabled: false,
+  },
+  {
     title: 'MARS Weather (Coming Soon)',
     url: 'mars-weather',
     icon: 'cloud',

@@ -49,6 +49,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/snapi/snapi.module').then((m) => m.SnapiPageModule),
   },
+  {
+    path: 'solar-system',
+    loadChildren: () => import('./pages/solar-system/solar-system.module').then( m => m.SolarSystemPageModule)
+  },
 ];
 
 @NgModule({

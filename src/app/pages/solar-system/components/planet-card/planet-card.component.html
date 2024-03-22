@@ -1,0 +1,11 @@
+<ion-card class="planet-card" (click)="navigateToDetails(planet.id)">
+  <img
+    class="planet-image"
+    alt="image-not-available"
+    [src]="'assets/solar-system/' + planet.id + '.jpg'"
+  />
+  <ion-card-header>
+    <ion-card-subtitle color="primary">{{ planet.bodyType }}</ion-card-subtitle>
+    <ion-card-title>{{ planet.englishName }}</ion-card-title>
+  </ion-card-header>
+</ion-card>
